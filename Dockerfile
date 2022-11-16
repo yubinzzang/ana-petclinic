@@ -1,5 +1,7 @@
 FROM openjdk:18-jdk-alpine
 
-ADD spring-petclinic/target/spring-petclinic-2.7.3.jar /spring-petclinic-2.7.3.jar
+EXPOSE 8080
 
-CMD ["java", "-jar", "/spring-petclinic-2.7.3.jar"]
+ADD target/spring-petclinic-2.7.0-SNAPSHOT.jar petclinic.jar
+
+ENTRYPOINT ["java" ,"-jar","petclinic.jar"]
