@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-app
+  name: petclinic
 spec:
   replicas: 2
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: gcr.io/class-mino-01/petclinic:6
+        image: gcr.io/class-mino-01/petclinic:3
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-boot-svc
+  name: petclinic-svc
 spec:
   selector:
     app: spring-boot-app
